@@ -1,0 +1,227 @@
+/* Journey Timeline Styles */
+.journey-timeline-wrapper {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Central Constellation Glowing Line */
+.journey-timeline-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 122, 0, 0.8) 0%,
+    rgba(56, 189, 248, 0.6) 50%,
+    rgba(251, 191, 36, 0.4) 100%
+  );
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .journey-timeline-wrapper::before {
+    left: 24px;
+  }
+}
+
+.journey-milestone-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+  align-items: center;
+}
+
+.journey-milestone-item:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .journey-milestone-item {
+    grid-template-columns: 1fr;
+    padding-left: 60px;
+    gap: 16px;
+  }
+}
+
+/* Constellation Orbital Node in the Center */
+.timeline-center-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0B1020;
+  border: 2px solid var(--accent-orange);
+  box-shadow: 0 0 16px var(--accent-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+@media (max-width: 768px) {
+  .timeline-center-node {
+    left: 24px;
+    top: 24px;
+    transform: translate(-50%, 0);
+  }
+}
+
+.node-pulse-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  box-shadow: 0 0 10px #FFFFFF;
+}
+
+/* Alternating sides for desktop */
+.journey-item-left .timeline-card {
+  grid-column: 1;
+}
+
+.journey-item-right .timeline-card {
+  grid-column: 2;
+}
+
+.journey-item-left .timeline-period-col {
+  grid-column: 2;
+  text-align: left;
+}
+
+.journey-item-right .timeline-period-col {
+  grid-column: 1;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .journey-item-left .timeline-card,
+  .journey-item-right .timeline-card {
+    grid-column: 1;
+  }
+
+  .journey-item-left .timeline-period-col,
+  .journey-item-right .timeline-period-col {
+    display: none;
+  }
+}
+
+.timeline-period-text {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-orange-light);
+  letter-spacing: 0.05em;
+}
+
+/* Milestone Card Content */
+.timeline-card {
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.timeline-mobile-period {
+  display: none;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--accent-orange-light);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .timeline-mobile-period {
+    display: block;
+  }
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+
+.timeline-institution {
+  font-size: 0.88rem;
+  color: var(--accent-cream);
+  font-weight: 500;
+}
+
+.timeline-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Languages Bottom Strip */
+.journey-languages-container {
+  margin-top: 60px;
+  padding: 28px 36px;
+  background: rgba(17, 24, 43, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .journey-languages-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.languages-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.languages-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.language-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-cream);
+}

@@ -1,0 +1,193 @@
+/* CV Viewer Modal Styles */
+.cv-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 18, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .cv-modal-overlay {
+    padding: 10px;
+  }
+}
+
+.cv-modal-dialog {
+  background: #0E1528;
+  border: 1px solid rgba(255, 122, 0, 0.4);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 122, 0, 0.2);
+  width: 100%;
+  max-width: 960px;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .cv-modal-dialog {
+    height: 96vh;
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* Modal Header */
+.cv-modal-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(14, 21, 40, 0.98);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .cv-modal-header {
+    padding: 12px 16px;
+  }
+}
+
+.cv-modal-title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cv-modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .cv-modal-title {
+    font-size: 0.98rem;
+  }
+}
+
+.cv-modal-subtitle {
+  font-size: 0.78rem;
+  color: var(--accent-orange-light);
+}
+
+.cv-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cv-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cv-action-btn:hover {
+  background: rgba(255, 122, 0, 0.15);
+  border-color: rgba(255, 122, 0, 0.4);
+  color: #FFFFFF;
+}
+
+@media (max-width: 640px) {
+  .cv-action-btn span {
+    display: none;
+  }
+  .cv-action-btn {
+    padding: 8px;
+  }
+}
+
+.cv-close-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.cv-close-btn:hover {
+  background: rgba(255, 122, 0, 0.2);
+  border-color: var(--accent-orange);
+  transform: rotate(90deg);
+}
+
+/* Mobile Alert Notice */
+.cv-mobile-notice {
+  display: none;
+  background: rgba(255, 122, 0, 0.12);
+  border-bottom: 1px solid rgba(255, 122, 0, 0.25);
+  padding: 8px 16px;
+  font-size: 0.78rem;
+  color: var(--text-cream);
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .cv-mobile-notice {
+    display: flex;
+  }
+}
+
+.cv-mobile-open-link {
+  color: var(--accent-orange-light);
+  font-weight: 600;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Modal Body / PDF Frame */
+.cv-modal-body {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background: #141C33;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #FFFFFF;
+  flex: 1;
+}

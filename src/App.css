@@ -1,0 +1,45 @@
+/* App Level Layout & Atmospheric Overlays */
+.app-universe {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.cosmic-nebula-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.nebula-orange {
+  top: 15%;
+  right: -100px;
+  background: radial-gradient(circle, var(--accent-orange) 0%, transparent 70%);
+}
+
+.nebula-cyan {
+  top: 55%;
+  left: -150px;
+  background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+}
+
+.nebula-violet {
+  bottom: 10%;
+  right: 10%;
+  background: radial-gradient(circle, var(--accent-violet) 0%, transparent 70%);
+}
+
+main {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}

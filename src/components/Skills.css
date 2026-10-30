@@ -1,0 +1,273 @@
+/* Skills Section Styles */
+.skills-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .skills-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.skills-filter-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(17, 24, 43, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 122, 0, 0.12);
+  color: #FFFFFF;
+  border-color: rgba(255, 122, 0, 0.35);
+}
+
+.filter-btn.active {
+  background: var(--accent-orange);
+  color: #FFFFFF;
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 15px rgba(255, 122, 0, 0.4);
+  font-weight: 600;
+}
+
+/* Orbit View Toggle Button */
+.orbit-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38BDF8;
+  transition: all 0.25s ease;
+}
+
+.orbit-toggle-btn:hover,
+.orbit-toggle-btn.active {
+  background: rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+  color: #FFFFFF;
+}
+
+/* Categorized Skills Grid */
+.skills-category-group {
+  margin-bottom: 40px;
+}
+
+.skills-category-group:last-child {
+  margin-bottom: 0;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.category-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 122, 0, 0.12);
+  border: 1px solid rgba(255, 122, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-orange-light);
+}
+
+.category-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-card {
+  padding: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 122, 0, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6), 0 0 18px rgba(255, 122, 0, 0.15);
+}
+
+.skill-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.skill-level-badge {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+.skill-card:hover .skill-level-badge {
+  background: rgba(255, 122, 0, 0.15);
+  border-color: rgba(255, 122, 0, 0.35);
+  color: var(--accent-orange-light);
+}
+
+.skill-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Supplementary Interactive Cosmic Orbit Stage */
+.orbit-universe-stage {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  height: 520px;
+  margin: 0 auto 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(17, 24, 43, 0.9) 0%, rgba(11, 16, 32, 0.95) 75%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 640px) {
+  .orbit-universe-stage {
+    height: 400px;
+  }
+}
+
+.orbit-sun-core {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FFFFFF, #FF7A00 70%, #993D00 100%);
+  box-shadow: 0 0 45px rgba(255, 122, 0, 0.8), 0 0 90px rgba(255, 122, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  z-index: 3;
+  animation: coreGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes coreGlow {
+  0% { transform: scale(0.96); box-shadow: 0 0 35px rgba(255, 122, 0, 0.7); }
+  100% { transform: scale(1.05); box-shadow: 0 0 60px rgba(255, 122, 0, 0.9); }
+}
+
+.tech-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.tech-orbit-1 {
+  width: 220px;
+  height: 220px;
+  animation: spinRingClockwise 26s linear infinite;
+}
+
+.tech-orbit-2 {
+  width: 360px;
+  height: 360px;
+  animation: spinRingCounterClockwise 38s linear infinite;
+}
+
+.tech-orbit-3 {
+  width: 500px;
+  height: 500px;
+  animation: spinRingClockwise 54s linear infinite;
+}
+
+@media (max-width: 640px) {
+  .tech-orbit-1 { width: 160px; height: 160px; }
+  .tech-orbit-2 { width: 260px; height: 260px; }
+  .tech-orbit-3 { width: 340px; height: 340px; }
+}
+
+.orbit-planet-node {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(17, 24, 43, 0.92);
+  border: 1px solid rgba(255, 122, 0, 0.5);
+  box-shadow: 0 0 15px rgba(255, 122, 0, 0.35);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.orbit-planet-node.cyan {
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+}
+
+.orbit-planet-node.gold {
+  border-color: rgba(251, 191, 36, 0.6);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.35);
+}

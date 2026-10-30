@@ -1,0 +1,420 @@
+/* DEVVERSE Genuine 3D Solar System Styles */
+
+.solar-stage-wrapper {
+  position: relative;
+  width: 100%;
+  height: 680px;
+  background: radial-gradient(circle at center, rgba(14, 21, 40, 0.8) 0%, rgba(8, 12, 24, 0.98) 85%);
+  border: 1px solid rgba(255, 122, 0, 0.25);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 122, 0, 0.12);
+  user-select: none;
+}
+
+@media (max-width: 1024px) {
+  .solar-stage-wrapper {
+    height: 560px;
+  }
+}
+
+@media (max-width: 640px) {
+  .solar-stage-wrapper {
+    height: 480px;
+    border-radius: var(--radius-lg);
+  }
+}
+
+.solar-canvas-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+}
+
+.solar-canvas-container:active {
+  cursor: grabbing;
+}
+
+/* Floating Top HUD Controls */
+.solar-hud-top {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.solar-hud-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.solar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-cream);
+  background: rgba(11, 16, 32, 0.85);
+  border: 1px solid rgba(255, 122, 0, 0.35);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(10px);
+}
+
+.solar-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.solar-hud-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.solar-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-cream);
+  background: rgba(14, 21, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.solar-ctrl-btn:hover {
+  background: rgba(255, 122, 0, 0.18);
+  border-color: rgba(255, 122, 0, 0.45);
+  color: #FFFFFF;
+}
+
+.solar-ctrl-btn.active {
+  background: rgba(255, 122, 0, 0.25);
+  border-color: var(--accent-orange);
+  color: #FFAE5C;
+}
+
+/* Quick Planet Selector Bar (Bottom) */
+.solar-planets-bar {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(11, 16, 32, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(14px);
+  max-width: 95%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  z-index: 10;
+}
+
+.solar-planets-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.planet-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.planet-chip:hover {
+  background: rgba(255, 122, 0, 0.15);
+  border-color: rgba(255, 122, 0, 0.35);
+  color: #FFFFFF;
+}
+
+.planet-chip.selected {
+  background: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.5);
+  font-weight: 600;
+}
+
+.chip-color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Interactive Hover Tooltip */
+.solar-hover-tooltip {
+  position: absolute;
+  transform: translate(-50%, -130%);
+  pointer-events: none;
+  background: rgba(11, 16, 32, 0.92);
+  border: 1px solid rgba(255, 122, 0, 0.5);
+  box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  z-index: 15;
+  transition: opacity 0.15s ease;
+}
+
+/* Planet Dossier Info Card (Slide-in) */
+.planet-dossier-card {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 330px;
+  max-width: calc(100% - 40px);
+  background: rgba(14, 21, 40, 0.94);
+  border: 1px solid rgba(255, 122, 0, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 122, 0, 0.2);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 20;
+}
+
+@media (max-width: 640px) {
+  .planet-dossier-card {
+    top: 55px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    padding: 16px;
+  }
+}
+
+.dossier-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+
+.dossier-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.dossier-class {
+  font-size: 0.76rem;
+  color: var(--accent-orange-light);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.dossier-close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.dossier-close-btn:hover {
+  background: rgba(255, 122, 0, 0.2);
+  border-color: var(--accent-orange);
+}
+
+.dossier-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dossier-stat-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+
+.stat-box-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-box-val {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-top: 2px;
+}
+
+.dossier-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.dossier-badge-pill {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-orange);
+  background: rgba(255, 122, 0, 0.12);
+  border: 1px solid rgba(255, 122, 0, 0.35);
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.dossier-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.dossier-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.dossier-highlight-chip {
+  font-size: 0.68rem;
+  color: var(--text-cream);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  padding: 3px 8px;
+}
+
+.dossier-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.dossier-jump-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 9px 14px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #FF7A00 0%, #FF9500 100%);
+  color: #FFFFFF;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.35);
+  transition: all 0.2s ease;
+}
+
+.dossier-jump-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.5);
+  color: #FFFFFF;
+}
+
+.dossier-reset-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dossier-reset-btn:hover {
+  background: rgba(255, 122, 0, 0.15);
+  border-color: var(--accent-orange);
+  color: #FFFFFF;
+}
+
+/* Fallback message for WebGL disabled */
+.solar-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  padding: 20px;
+  text-align: center;
+}

@@ -1,0 +1,48 @@
+/* Cosmic Orbit Section Styles */
+
+.cosmic-orbit-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(11, 16, 32, 0.4) 0%, rgba(14, 21, 40, 0.6) 50%, rgba(11, 16, 32, 0.4) 100%);
+  border-top: 1px solid rgba(255, 122, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 122, 0, 0.15);
+  padding: 110px 0;
+}
+
+@media (max-width: 768px) {
+  .cosmic-orbit-section {
+    padding: 70px 0;
+  }
+}
+
+.orbit-guide-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .orbit-guide-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(17, 24, 43, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+}
+
+.orbit-guide-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+}
+
+.orbit-guide-item strong {
+  color: #FFFFFF;
+}
