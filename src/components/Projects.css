@@ -1,0 +1,472 @@
+/* Projects Section Styles */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  border-radius: var(--radius-xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  align-items: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 990px) {
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 28px;
+  }
+}
+
+.project-card:hover {
+  border-color: var(--border-orange-strong);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 122, 0, 0.2);
+}
+
+/* Alternate order for second card on desktop */
+.project-card-reverse .project-preview-col {
+  order: 2;
+}
+
+.project-card-reverse .project-info-col {
+  order: 1;
+}
+
+@media (max-width: 990px) {
+  .project-card-reverse .project-preview-col,
+  .project-card-reverse .project-info-col {
+    order: unset;
+  }
+}
+
+/* Project Info Column */
+.project-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.project-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.project-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #FFFFFF;
+}
+
+.project-summary {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.project-highlights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-highlight-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-cream);
+  line-height: 1.5;
+}
+
+.project-highlight-bullet svg {
+  color: var(--accent-orange);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Tech Badges */
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tech-badge {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-cream);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* Project Action Buttons */
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+@media (max-width: 520px) {
+  .project-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .project-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Custom Architectural Preview Visuals */
+.project-preview-col {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0A0E1A;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.preview-artwork-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(11, 16, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  z-index: 5;
+}
+
+/* Microfinance Blueprint Visual */
+.blueprint-wrapper {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: radial-gradient(circle at top right, rgba(255, 122, 0, 0.12) 0%, transparent 70%), #0D1326;
+}
+
+.blueprint-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+
+.blueprint-title {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-orange-light);
+  font-weight: 600;
+}
+
+.blueprint-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.blueprint-box {
+  background: rgba(17, 24, 43, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.blueprint-box-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.blueprint-box-val {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.blueprint-workflow {
+  background: rgba(255, 122, 0, 0.06);
+  border: 1px dashed rgba(255, 122, 0, 0.35);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-cream);
+}
+
+.workflow-node {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  box-shadow: 0 0 6px var(--accent-orange);
+}
+
+/* ForkRoute Mobile Visual */
+.forkroute-wrapper {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12) 0%, transparent 70%), #0D1326;
+}
+
+.forkroute-roles-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(17, 24, 43, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.role-pill {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+}
+
+.role-pill.active {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  font-weight: 600;
+}
+
+.forkroute-ticket {
+  background: rgba(17, 24, 43, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ticket-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-cream);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 6px;
+}
+
+.ticket-status-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #38BDF8;
+  font-weight: 600;
+}
+
+.live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 8px #38BDF8;
+  animation: pulseLive 1.5s infinite;
+}
+
+@keyframes pulseLive {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.forkroute-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stats-card-mini {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+}
+
+@media (max-width: 540px) {
+  .blueprint-wrapper,
+  .forkroute-wrapper {
+    padding: 16px 12px;
+  }
+
+  .blueprint-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .blueprint-workflow {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.74rem;
+  }
+
+  .forkroute-roles-bar {
+    flex-wrap: wrap;
+    gap: 6px;
+    border-radius: var(--radius-md);
+  }
+
+  .forkroute-stats-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* ── Clean Project Visual Cards ─────────────────────────── */
+.project-visual-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 32px 24px;
+  border-radius: 18px;
+  min-height: 320px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,122,0,0.18);
+  background: linear-gradient(135deg, rgba(15,20,40,0.95) 0%, rgba(20,30,60,0.90) 100%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-visual-card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.55), 0 0 24px rgba(255,122,0,0.15);
+  transform: translateY(-3px);
+}
+
+.microfinance-visual {
+  border-color: rgba(255, 122, 0, 0.25);
+  background: linear-gradient(135deg, rgba(15,20,40,0.96) 0%, rgba(30,20,10,0.92) 100%);
+}
+
+.forkroute-visual {
+  border-color: rgba(56, 189, 248, 0.22);
+  background: linear-gradient(135deg, rgba(10,20,45,0.96) 0%, rgba(10,30,50,0.92) 100%);
+}
+
+.visual-icon-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,122,0,0.12);
+  border: 2px solid rgba(255,122,0,0.30);
+  box-shadow: 0 0 20px rgba(255,122,0,0.18);
+  flex-shrink: 0;
+}
+
+.forkroute-visual .visual-icon-ring {
+  background: rgba(56,189,248,0.10);
+  border-color: rgba(56,189,248,0.28);
+  box-shadow: 0 0 20px rgba(56,189,248,0.15);
+}
+
+.visual-main-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.visual-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.visual-feature-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.visual-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  letter-spacing: 0.01em;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.microfinance-visual .visual-pill:hover {
+  background: rgba(255,122,0,0.15);
+  border-color: rgba(255,122,0,0.35);
+}
+
+.forkroute-visual .visual-pill:hover {
+  background: rgba(56,189,248,0.12);
+  border-color: rgba(56,189,248,0.30);
+}
+
+.visual-stack-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748B;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 12px;
+  width: 100%;
+  text-align: center;
+}
